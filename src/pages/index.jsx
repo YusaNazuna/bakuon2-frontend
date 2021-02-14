@@ -1,5 +1,5 @@
-import Layout from '@/components/organisms/Layout';
+import Authorization from '@/components/organisms/Authorization';
 
 export default function IndexPage() {
-  return <Layout>aaa</Layout>;
+  return <Authorization>aaa</Authorization>;
 }

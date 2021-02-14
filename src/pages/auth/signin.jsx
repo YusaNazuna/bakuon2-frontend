@@ -1,6 +1,7 @@
 import { providers, signIn } from 'next-auth/client';
 
 export default function SignIn({ providers }) {
+  console.info(providers);
   return (
     <>
       {Object.values(providers).map(provider => (

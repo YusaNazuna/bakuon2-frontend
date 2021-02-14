@@ -7,17 +7,15 @@ function Authorization({ children }) {
 
   return (
     <>
-      <main>
-        {!session && loading ? (
-          <></>
-        ) : !session ? (
-          <NoLogin />
-        ) : (
-          <>
-            <Layout>{children}</Layout>
-          </>
-        )}
-      </main>
+      {!session && loading ? (
+        <></>
+      ) : !session ? (
+        <NoLogin />
+      ) : (
+        <>
+          <Layout>{children}</Layout>
+        </>
+      )}
     </>
   );
 }

@@ -1,15 +1,15 @@
-import Header from '@/components/organisms/Header';
 import LeftMenu from '@/components/organisms/LeftMenu';
-import Footer from '@/components/organisms/Footer';
+import AdminLeftMenu from '@/components/organisms/AdminLeftMenu';
 import styles from './Layout.module.scss';
 
-function Layout({ children }) {
+function Layout({ children, ...props }) {
+  const isAdmin = props.isAdmin;
   return (
     <>
       <div className={styles.root}>
         <section className={styles.content}>
-          <LeftMenu />
-          <main>{children}</main>
+          {isAdmin ? <AdminLeftMenu /> : <LeftMenu />}
+          <main className={styles.main}>{children}</main>
         </section>
       </div>
     </>

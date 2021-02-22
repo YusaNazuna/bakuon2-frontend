@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/client';
 import { AiFillHome, AiFillEdit } from 'react-icons/ai';
-import { BsFillPeopleFill } from 'react-icons/bs';
+import { MdSettings } from 'react-icons/md';
 import { LeftMenuFrontLists, LeftMenuAdminLists } from '@/constants/leftMenu';
 import styles from './LeftMenu.module.scss';
 
@@ -18,14 +18,18 @@ export default function LeftMenu() {
         </span>
         <ul className={styles.logoMenu}>
           <li>
-            <button>
-              <AiFillHome />
-            </button>
+            <Link href="/admin/dashboard">
+              <button>
+                <MdSettings />
+              </button>
+            </Link>
           </li>
           <li>
-            <button>
-              <BsFillPeopleFill />
-            </button>
+            <Link href="/">
+              <button>
+                <AiFillHome />
+              </button>
+            </Link>
           </li>
         </ul>
       </div>
@@ -34,7 +38,7 @@ export default function LeftMenu() {
         <div className={styles.frontMenuInner}>
           <ul>
             {LeftMenuFrontLists.map(item => (
-              <Link href="/novels" key={item.id}>
+              <Link href={item.url} key={item.id}>
                 <li>
                   <div
                     className={styles.frontImageArea}
@@ -54,10 +58,12 @@ export default function LeftMenu() {
         <h4>Admin Menu</h4>
         <ul>
           {LeftMenuAdminLists.map(item => (
-            <li key={item.id}>
-              <AiFillEdit />
-              <span>{item.title}</span>
-            </li>
+            <Link href={item.url} key={item.id}>
+              <li>
+                <AiFillEdit />
+                <span>{item.title}</span>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

@@ -90,6 +90,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
       cursor: pointer;
       transition: all 0.1s ease-in;
       .iconTitle {
@@ -100,6 +101,19 @@
         color: #fff;
         background-color: #ffb53e;
         transition: all 0.1s ease-out;
+      }
+      &.current {
+        color: #fff;
+        background-color: #ffb53e;
+        &::after {
+          content: '';
+          width: 4px;
+          height: 100%;
+          background-color: #db1756;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
     }
   }

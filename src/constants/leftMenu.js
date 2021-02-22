@@ -36,37 +36,37 @@ export const LeftMenuFrontLists = [
 ];
 export const LeftMenuAdminLists = [
   {
-    id: 99,
+    id: 'dashboard',
     title: 'ダッシュボード',
     url: '/admin/dashboard',
     icon: <HiTemplate />
   },
   {
-    id: 1,
+    id: 'novel',
     title: '掌編小説',
     url: '/admin/novel',
     icon: <HiPencilAlt />
   },
   {
-    id: 2,
+    id: 'idea',
     title: 'アイデア投稿',
     url: '/admin/idea',
     icon: <HiLightBulb />
   },
   {
-    id: 3,
+    id: 'message-board',
     title: '掲示板',
     url: '/admin/message-board',
     icon: <HiColorSwatch />
   },
   {
-    id: 4,
+    id: 'user-post',
     title: 'ユーザ投稿',
     url: '/admin/user-post',
     icon: <HiIdentification />
   },
   {
-    id: 5,
+    id: 'call-member',
     title: '遺跡募集',
     url: '/admin/call-member',
     icon: <HiSpeakerphone />

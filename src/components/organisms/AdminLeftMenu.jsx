@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/client';
 import { HiSwitchHorizontal } from 'react-icons/hi';
 import { IoLogOutOutline } from 'react-icons/io5';
@@ -7,6 +8,7 @@ import styles from './AdminLeftMenu.module.scss';
 
 export default function AdminLeftMenu() {
   const [session, loading] = useSession();
+  const router = useRouter();
 
   return (
     <nav className={styles.root}>
@@ -24,14 +26,17 @@ export default function AdminLeftMenu() {
       <div className={styles.inner}>
         <div className={styles.menu}>
           <ul>
-            {LeftMenuAdminLists.map(item => (
-              <Link href={item.url} key={item.id}>
-                <li>
-                  {item.icon}
-                  <p className={styles.iconTitle}>{item.title}</p>
-                </li>
-              </Link>
-            ))}
+            {LeftMenuAdminLists.map(item => {
+              const isCurrent = router.pathname.indexOf(item.id) !== -1;
+              return (
+                <Link href={item.url} key={item.id}>
+                  <li className={`${isCurrent && styles.current}`}>
+                    {item.icon}
+                    <p className={`${styles.iconTitle}`}>{item.title}</p>
+                  </li>
+                </Link>
+              );
+            })}
           </ul>
         </div>
         <a
